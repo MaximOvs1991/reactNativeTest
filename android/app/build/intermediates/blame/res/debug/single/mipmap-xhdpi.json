@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\awesome-test-project\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "D:\\awesome-test-project\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\react-navtive-test-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "D:\\react-navtive-test-app\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    }
+]
