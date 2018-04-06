@@ -2,9 +2,5 @@
     {
         "merged": "D:\\awesome-test-project\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
         "source": "D:\\awesome-test-project\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.54.0\\res\\xml\\preferences.xml"
-    },
-    {
-        "merged": "D:\\react-navtive-test-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
-        "source": "D:\\react-navtive-test-app\\android\\app\\build\\intermediates\\exploded-aar\\com.facebook.react\\react-native\\0.54.0\\res\\xml\\preferences.xml"
     }
 ]

@@ -1,4 +1,4 @@
-#Wed Apr 04 20:01:11 EEST 2018
-base.0=D\:\\react-navtive-test-app\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Thu Apr 05 18:26:47 EEST 2018
+base.0=D\:\\awesome-test-project\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=D\:\\react-navtive-test-app\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=D\:\\awesome-test-project\\android\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

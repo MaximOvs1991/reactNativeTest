@@ -1,24 +1,46 @@
-import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import React from 'react';
 
-// components
-import { LoginForm } from './components/login-form';
+import { DrawerNavigator } from 'react-navigation';
 
-export default class App extends Component {
-    render() {
-        let loginFormConfig = {
-            title: 'Welcome',
-            buttonText: 'Log In',
-            userNameInputPlaceholder: 'username',
-            passwordInputPlaceholder: 'password'
-        };
+// screens
+import { LoginScreen } from './screens/login-screen';
+import { HomeScreen } from './screens/home-screen';
+import { StackoverflowScreen } from './screens/stackoverflow-screen';
+import { LogoutScreen } from './screens/logout-screen';
 
-        return(
-            <View style={{flex: 1}}>
-                <StatusBar backgroundColor="#636e72"
-                           barStyle="dark-content"/>
-                <LoginForm config={loginFormConfig}/>
-            </View>
-        );
+const NavigatorSet = DrawerNavigator(
+    {
+        login: {
+            path: '/',
+            screen: LoginScreen
+        },
+        home: {
+            path: '/home',
+            screen: HomeScreen
+        },
+        stackoverflow: {
+            path: '/stackoverflow',
+            screen: StackoverflowScreen
+        },
+        logout: {
+            path: '/logout',
+            screen: LogoutScreen
+        }
+    },
+    {
+        initialRouteName: 'login',
+        drawerPosition: 'left',
+        drawerWidth: 200,
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+        }
     }
-}
+);
+
+export default NavigatorSet;

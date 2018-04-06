@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Text,
     View,
@@ -7,51 +7,47 @@ import {
     TextInput
 } from 'react-native';
 
-export class LoginForm extends Component {
-    constructor () {
-        super();
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-        this.state = {
-            username: '',
-            password: ''
-        }
-    }
+export class LoginForm extends React.Component {
     render() {
+        const navigation = this.props.config.navigation;
+
+        console.log(navigation);
+
         return(
             <View style={styles.container}>
                 <View style={styles.box}>
                     <Text style={styles.title}>{this.props.config.title}</Text>
                     <View style={styles.controlsHolder}>
-                        <TextInput style={styles.formControl}
-                                   placeholder={this.props.config.userNameInputPlaceholder}
-                                   returnKeyType="next"
-                                   onSubmitEditing={() => this.passwordInput.focus()}
-                                   autoCapitalize="none"
-                                   onChangeText={username => this.setState(username)}
-                                   value={this.state.username}
-                                   autoCorrect={false}
-                        />
-                        <TextInput style={styles.formControl}
-                                   secureTextEntry
-                                   placeholder={this.props.config.passwordInputPlaceholder}
-                                   returnKeyType="go"
-                                   onChangeText={password => this.setState(password)}
-                                   value={this.state.password}
-                                   autoCapitalize="none"
-                                   ref={input => this.passwordInput = input}
-                        />
+                        <View style={styles.controlBox}>
+                            <MaterialIcons style={styles.icon} name="face" size={26}> </MaterialIcons>
+                            <TextInput style={styles.formControl}
+                                       placeholder={this.props.config.userNameInputPlaceholder}
+                                       returnKeyType="next"
+                                       onSubmitEditing={() => this.passwordInput.focus()}
+                                       autoCapitalize="none"
+                                       autoCorrect={false}
+                            />
+                        </View>
+                        <View style={styles.controlBox}>
+                            <MaterialIcons style={styles.icon} name="lock" size={26}> </MaterialIcons>
+                            <TextInput style={styles.formControl}
+                                       secureTextEntry
+                                       placeholder={this.props.config.passwordInputPlaceholder}
+                                       returnKeyType="go"
+                                       autoCapitalize="none"
+                                       ref={input => this.passwordInput = input}
+                            />
+                        </View>
                     </View>
                     <Button color="#636e72"
-                            onPress={this.login}
+                            onPress={() => navigation.navigate('home')}
                             title={this.props.config.buttonText}
                     />
                 </View>
             </View>
         );
-    }
-
-    login() {
-        alert(this.state);
     }
 }
 
@@ -79,12 +75,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 20
-    },
+        },
     controlsHolder: {
         paddingTop: 30,
         marginBottom: 30
     },
+    controlBox: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
     formControl: {
+        flex: 1,
         marginBottom: 10
     }
 });
