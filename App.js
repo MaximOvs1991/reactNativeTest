@@ -1,46 +1,23 @@
 import React from 'react';
+import { StatusBar, StyleSheet, View } from 'react-native';
 
-import { DrawerNavigator } from 'react-navigation';
+import { Drawer } from './app/config/routes'
 
-// screens
-import { LoginScreen } from './screens/login-screen';
-import { HomeScreen } from './screens/home-screen';
-import { StackoverflowScreen } from './screens/stackoverflow-screen';
-import { LogoutScreen } from './screens/logout-screen';
-
-const NavigatorSet = DrawerNavigator(
-    {
-        login: {
-            path: '/',
-            screen: LoginScreen
-        },
-        home: {
-            path: '/home',
-            screen: HomeScreen
-        },
-        stackoverflow: {
-            path: '/stackoverflow',
-            screen: StackoverflowScreen
-        },
-        logout: {
-            path: '/logout',
-            screen: LogoutScreen
-        }
-    },
-    {
-        initialRouteName: 'login',
-        drawerPosition: 'left',
-        drawerWidth: 200,
-        navigationOptions: {
-            headerStyle: {
-                backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-        }
-    }
+const App = () => (
+    <View style={styles.appContainer}>
+        <StatusBar
+            backgroundColor="#ff8c00"
+            barStyle="dark-content"
+        />
+        <Drawer/>
+    </View>
 );
 
-export default NavigatorSet;
+export default App;
+
+const styles = StyleSheet.create({
+    appContainer: {
+        flex: 1,
+        backgroundColor: '#b2bec3'
+    }
+});
