@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Header} from "../components/header";
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Header } from '../components/header';
 
 export class StackoverflowScreen extends Component {
     static navigationOptions = {
         drawerLabel: 'Stackoverflow'
     };
+
+    constructor() {
+        super();
+
+        async function getReactNativeTaggedQuestions() {
+            try {
+                let response = await fetch(
+                    'http://api.stackexchange.com/docs/questions#order=desc&sort=activity&tagged=react-native&site=stackoverflow&run=true'
+                );
+                let responseJson = await response.json();
+                return responseJson.movies;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        let data = getReactNativeTaggedQuestions();
+    }
 
     render() {
         const headerConfig = {
@@ -13,36 +31,20 @@ export class StackoverflowScreen extends Component {
             title: 'Stackoverflow'
         };
 
+        let rowView = (index) => {
+            return { backgroundColor: index % 2 === 0 ? '#636e72' : '#fff' };
+        };
+
         return(
             <View>
                 <Header config={headerConfig}/>
-                <ScrollView style={styles.content}>
-                    <Text>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae debitis dicta ea earum et, expedita facilis fugit magni nisi nulla odio, officiis placeat porro quam reprehenderit vitae. Earum, voluptatibus.
-                    </Text>
+                <ScrollView>
+                    <FlatList
+                        data={[{key: 'a'}, {key: 'b'}]}
+                        renderItem={({item, index}) => {
+                            return(<Text style={[styles.listItem, rowView(index)]}>{item.key}</Text>);
+                        }}
+                    />
                 </ScrollView>
             </View>
         );
@@ -50,7 +52,9 @@ export class StackoverflowScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-    content: {
-        padding: 10
+    listItem: {
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        fontSize: 20
     }
 });

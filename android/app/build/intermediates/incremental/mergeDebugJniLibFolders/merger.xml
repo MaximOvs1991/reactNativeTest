@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\react-navtive-test-app\android\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\react-navtive-test-app\android\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\react_native\rn-test\reactNativeTest\android\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="E:\react_native\rn-test\reactNativeTest\android\app\src\debug\jniLibs"/></dataSet></merger>
