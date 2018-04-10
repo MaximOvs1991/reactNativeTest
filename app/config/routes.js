@@ -22,6 +22,7 @@ export const Drawer = DrawerNavigator(
         }
     },
     {
+        drawerBackgroundColor: '#b2bec3',
         initialRouteName: 'login',
         drawerPosition: 'left',
         drawerWidth: 200
