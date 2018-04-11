@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
+import {
+    ActivityIndicator,
+    FlatList,
+    StyleSheet,
+    Text,
+    View
+} from 'react-native';
 
 export class List extends Component {
     constructor() {

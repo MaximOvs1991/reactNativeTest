@@ -10,6 +10,37 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export class LoginForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: false,
+            username: '',
+            password: ''
+        };
+
+        this.setName = this.setName.bind(this);
+        this.setPassword = this.setPassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    setName(name) {
+        this.setState({username: name});
+    }
+
+    setPassword(password) {
+        this.setState({userpassword: password});
+    }
+
+    onSubmit() {
+        if (
+            !(this.state.username && this.state.username.length) ||
+            !(this.state.password && this.state.password.length)
+        ) {
+            this.setState({error: true});
+        }
+        this.props.onSubmit(this.state);
+    }
+
     render() {
         const navigation = this.props.config.navigation;
 
@@ -28,6 +59,7 @@ export class LoginForm extends React.Component {
                                        onSubmitEditing={() => this.passwordInput.focus()}
                                        autoCapitalize="none"
                                        autoCorrect={false}
+                                       onChangeText={this.setName}
                             />
                         </View>
                         <View style={styles.controlBox}>
@@ -35,16 +67,17 @@ export class LoginForm extends React.Component {
                                            name="lock"
                                            size={26}/>
                             <TextInput style={styles.formControl}
-                                       secureTextEntry
-                                       placeholder={this.props.config.passwordInputPlaceholder}
-                                       returnKeyType="go"
-                                       autoCapitalize="none"
-                                       ref={input => this.passwordInput = input}
+                                        secureTextEntry
+                                        placeholder={this.props.config.passwordInputPlaceholder}
+                                        returnKeyType="go"
+                                        autoCapitalize="none"
+                                        ref={input => this.passwordInput = input}
+                                        onChangeText={this.setPassword}
                             />
                         </View>
                     </View>
                     <Button color="#636e72"
-                            onPress={() => navigation.navigate('home')}
+                            onPress={this.onSubmit}
                             title={this.props.config.buttonText}
                     />
                 </View>

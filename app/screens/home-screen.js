@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import { Header } from '../components/header';
+import { connect } from 'react-redux'
 
-export class HomeScreen extends Component {
+class HomeScreen extends Component {
     static navigationOptions = {
         drawerLabel: 'Home'
     };
@@ -19,7 +20,7 @@ export class HomeScreen extends Component {
                     <Header config={headerConfig}/>
                 </View>
                 <View style={styles.content}>
-                    <Text style={styles.title}>Hello, Steve!</Text>
+                    <Text style={styles.title}>Hello, {this.props.username}!</Text>
                 </View>
             </View>
         );
@@ -43,3 +44,10 @@ const styles = StyleSheet.create({
         fontSize: 40
     }
 });
+
+export default connect((state) => {
+    return {
+        username: state.AuthReducer.username,
+        password: state.AuthReducer.password
+    }
+})(HomeScreen);
