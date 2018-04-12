@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Apr 12 00:02:03 EET 2018
+#Thu Apr 12 21:50:19 EET 2018
 5.base=D\:\\reactNativeTest\\android\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0
 22.path=lib/x86_64/libimagepipeline.so
 32.set=NATIVE_RESOURCE

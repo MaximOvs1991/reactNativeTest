@@ -28,16 +28,17 @@ export class LoginForm extends React.Component {
     }
 
     setPassword(password) {
-        this.setState({userpassword: password});
+        this.setState({password: password});
     }
 
     onSubmit() {
-        if (
-            !(this.state.username && this.state.username.length) ||
-            !(this.state.password && this.state.password.length)
-        ) {
-            this.setState({error: true});
+        let condition = !(this.state.username && this.state.username.length) ||
+                        !(this.state.password && this.state.password.length)
+
+        if (condition) {
+           return this.setState({error: true});
         }
+
         this.props.onSubmit(this.state);
     }
 

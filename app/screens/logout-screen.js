@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { Header } from '../components/header';
 
-export class LogoutScreen extends Component {
+export default class LogoutScreen extends Component {
     static navigationOptions = {
         drawerLabel: 'Log Out'
     };
